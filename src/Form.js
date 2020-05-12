@@ -1,13 +1,13 @@
-import React from "react";
-import TextField from "@material-ui/core/TextField";
-import { BehaviorsExhitbited } from "./behaviors-exhibited";
-import { Accomplishments } from "./accomplishments";
-import { AddButton } from "./add-button";
+import React from 'react'
+import TextField from '@material-ui/core/TextField'
+import { BehaviorsExhitbited } from './behaviors-exhibited'
+import { Accomplishments } from './accomplishments'
+import { AddButton } from './add-button'
 
 const WorkExperience = () => {
   return (
-    <fieldset style={{ marginTop: 24 }}>
-      <legend>{"Work Experience"}</legend>
+    <fieldset style={{ borderWidth: 0, margin: '24px 0' }}>
+      <legend>{'Work Experience'}</legend>
       <TextField
         label="Title"
         defaultValue=""
@@ -22,30 +22,27 @@ const WorkExperience = () => {
         defaultValue=""
         fullWidth
         multiline
-        variant={"outlined"}
+        rows={4}
+        variant={'outlined'}
         helperText={
-          "Responsabilities, day to day, what did you make sure happened?"
+          'Responsabilities, day to day, what did you make sure happened?'
         }
       />
       <BehaviorsExhitbited />
       <Accomplishments />
     </fieldset>
-  );
-};
+  )
+}
 
 const Form = () => {
-  const [workExperienceSections, setWorkExperienceSections] = React.useState(
-    []
-  );
+  const [workExperienceSections, setWorkExperienceSections] = React.useState([])
   const addWES = () =>
-    setWorkExperienceSections(
-      workExperienceSections.concat(<WorkExperience />)
-    );
+    setWorkExperienceSections(workExperienceSections.concat(<WorkExperience />))
 
   return (
-    <form>
-      <fieldset>
-        <legend>{"Personal Information"}</legend>
+    <form style={{ padding: '0 24px', marginBottom: '64px' }}>
+      <fieldset style={{ borderWidth: 0 }}>
+        <legend>{'Personal Information'}</legend>
         <TextField
           id="name"
           label="Full Name"
@@ -55,9 +52,9 @@ const Form = () => {
         />
       </fieldset>
       {workExperienceSections.map(i => i)}
-      <AddButton onClick={addWES} label={"Add Work Experience"} />
+      <AddButton onClick={addWES} label={'Add Work Experience'} />
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form
